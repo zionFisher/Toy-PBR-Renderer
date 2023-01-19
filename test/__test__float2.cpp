@@ -11,7 +11,6 @@ using namespace std;
 int main()
 {
     cout << "---begin---" << endl;
-    cout << "prefix \"==\" means current line is code " << endl << endl;
     {
         float2 test1;
         float2 test2(1.1f, 2.2f);
