@@ -164,3 +164,14 @@ constexpr float4 &float4::operator/=(const float value)
     this->w /= value;
     return *this;
 }
+
+constexpr float4 operator+(const float &lhs, const float4 &rhs)
+{
+    return float4(lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w);
+}
+
+constexpr float4 operator*(const float &lhs, const float4 &rhs)
+{
+    return float4(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w);
+}
+
