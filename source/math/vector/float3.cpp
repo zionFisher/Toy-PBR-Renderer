@@ -1,31 +1,11 @@
 #include "float3.hpp"
 
-float3 float3::normalize()
+constexpr float3 operator+(const float &lhs, const float3 &rhs)
 {
-    float norm = this->norm();
-    if (norm == 0)
-        return;
-
-    *this /= norm;
-    return *this;
+    return float3(lhs + rhs.x, lhs + rhs.y, lhs + rhs.z);
 }
 
-float float3::norm() const
+constexpr float3 operator*(const float &lhs, const float3 &rhs)
 {
-    return std::sqrt(this->norm_square());
-}
-
-float float3::norm_square() const
-{
-    return this->x * this->x + this->y * this->y + this->z * this->z;
-}
-
-float float3::dot(const float3 &other) const
-{
-    return this->x * other.x + this->y * other.y + this->z * other.z;
-}
-
-float3 float3::cross(const float3 &other) const
-{
-    return float3(this->y * other.z - this->z * other.y, this->z * other.x - this->x * other.z, this->x * other.y - this->y * other.x);
+    return float3(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z);
 }

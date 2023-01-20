@@ -1,26 +1,11 @@
 #include "float4.hpp"
 
-float4 float4::normalize()
+constexpr float4 operator+(const float &lhs, const float4 &rhs)
 {
-    float norm = this->norm();
-    if (norm == 0)
-        return;
-
-    *this /= norm;
-    return *this;
+    return float4(lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w);
 }
 
-float float4::norm() const
+constexpr float4 operator*(const float &lhs, const float4 &rhs)
 {
-    return std::sqrt(this->norm_square());
-}
-
-float float4::norm_square() const
-{
-    return this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w;
-}
-
-float float4::dot(const float4 &other) const
-{
-    return this->x * other.x + this->y * other.y + this->z * other.z + this->w * other.w;
+    return float4(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w);
 }

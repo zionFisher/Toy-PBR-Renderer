@@ -1,26 +1,11 @@
 #include "float2.hpp"
 
-float2 float2::normalize()
+constexpr float2 operator+(const float &lhs, const float2 &rhs)
 {
-    float norm = this->norm();
-    if (norm == 0)
-        return;
-
-    *this /= norm;
-    return *this;
+    return float2(lhs + rhs.x, lhs + rhs.y);
 }
 
-float float2::norm() const
+constexpr float2 operator*(const float &lhs, const float2 &rhs)
 {
-    return std::sqrt(this->norm_square());
-}
-
-float float2::norm_square() const
-{
-    return this->x * this->x + this->y * this->y;
-}
-
-float float2::dot(const float2 &other) const
-{
-    return this->x * other.x + this->y * other.y;
+    return float2(lhs * rhs.x, lhs * rhs.y);
 }
