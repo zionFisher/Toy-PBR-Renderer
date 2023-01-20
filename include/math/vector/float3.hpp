@@ -14,30 +14,30 @@ public:
     constexpr float3(float x, float y, float z);
 
 public:
-    constexpr float3 operator-() const;
-    constexpr float3& operator=(const float3 &value);
-    constexpr float3& operator=(const float &value);
-    constexpr float& operator[](const int index);
-    constexpr const float& operator[](const int index) const;
-    constexpr float3 operator+(const float3 &other) const;
-    constexpr float3 operator-(const float3 &other) const;
-    constexpr float3 operator+(const float value) const;
-    constexpr float3 operator-(const float value) const;
-    constexpr float3 operator*(const float value) const;
-    constexpr float3 operator/(const float value) const;
-    constexpr float3& operator+=(const float3 &other);
-    constexpr float3& operator-=(const float3 &other);
-    constexpr float3& operator+=(const float value);
-    constexpr float3& operator-=(const float value);
-    constexpr float3& operator*=(const float value);
-    constexpr float3& operator/=(const float value);
+    constexpr float3        operator- () const;
+    constexpr float3&       operator= (const float3 &value);
+    constexpr float3&       operator= (const float &value);
+    constexpr float&        operator[](const int index);
+    constexpr const float & operator[](const int index) const;
+    constexpr float3        operator+ (const float3 &other) const;
+    constexpr float3        operator- (const float3 &other) const;
+    constexpr float3        operator+ (const float value) const;
+    constexpr float3        operator- (const float value) const;
+    constexpr float3        operator* (const float value) const;
+    constexpr float3        operator/ (const float value) const;
+    constexpr float3 &      operator+=(const float3 &other);
+    constexpr float3 &      operator-=(const float3 &other);
+    constexpr float3 &      operator+=(const float value);
+    constexpr float3 &      operator-=(const float value);
+    constexpr float3 &      operator*=(const float value);
+    constexpr float3 &      operator/=(const float value);
 
 public:
-    float3 normalize();
-    float norm() const;
-    float norm_square() const;
-    float dot(const float3 &other) const;
-    float3 cross(const float3 &other) const;
+    float3 normalize  ();
+    float  norm       () const;
+    float  norm_square() const;
+    float  dot        (const float3 &other) const;
+    float3 cross      (const float3 &other) const;
 };
 
 constexpr float3::float3() : x(0), y(0), z(0) {}
