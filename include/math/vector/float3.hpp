@@ -18,6 +18,7 @@ public:
     constexpr float3& operator=(const float3 &value);
     constexpr float3& operator=(const float &value);
     constexpr float& operator[](const int index);
+    constexpr const float& operator[](const int index) const;
     constexpr float3 operator+(const float3 &other) const;
     constexpr float3 operator-(const float3 &other) const;
     constexpr float3 operator+(const float value) const;
@@ -64,6 +65,11 @@ constexpr float3 &float3::operator=(const float &value)
 }
 
 constexpr float &float3::operator[](const int index)
+{
+    return (index == 0 ? x : (index == 1 ? y : z));
+}
+
+constexpr const float &float3::operator[](const int index) const
 {
     return (index == 0 ? x : (index == 1 ? y : z));
 }
