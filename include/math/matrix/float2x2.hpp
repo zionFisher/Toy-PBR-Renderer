@@ -5,7 +5,7 @@
 class float2x2
 {
 public:
-    float2 rows[2];
+    float2 rows[3];
 
 public:
     constexpr float2x2();

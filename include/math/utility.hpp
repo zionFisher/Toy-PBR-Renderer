@@ -3,41 +3,23 @@
 #include "float2.hpp"
 #include "float3.hpp"
 #include "float4.hpp"
-#include "math_type_traits.hpp"
 
-#include <cmath>
-#include <type_traits>
-
-template<typename T>
-constexpr typename std::enable_if<is_vector<T>::value, float>::type
-dot(const T &lhs, const T &rhs)
+float dot(const float2 &lhs, const float2 &rhs)
 {
-    return lhs.dot(rhs);
+    return lhs.x * rhs.x + lhs.y * rhs.y;
 }
 
-constexpr float3
-cross(const float3 &lhs, const float3 &rhs)
+float dot(const float3 &lhs, const float3 &rhs)
 {
-    return lhs.cross(rhs);
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 }
 
-template<typename T>
-constexpr typename std::enable_if<is_vector<T>::value, float>::type
-norm(const T &vector)
+float dot(const float4 &lhs, const float4 &rhs)
 {
-    return vector.norm();
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
 }
 
-template<typename T>
-constexpr typename std::enable_if<is_vector<T>::value, float>::type
-norm_square(const T &vec)
+float3 cross(const float3 &lhs, const float3 &rhs)
 {
-    return vec.norm_square();
-}
-
-template<typename T>
-constexpr typename std::enable_if<is_vector<T>::value, T>::type
-normalize(T &vector)
-{
-    return vector.normalize();
+    return float3(lhs.y * rhs.z - lhs.z * rhs.y, lhs.z * rhs.x - lhs.x * rhs.z, lhs.x * rhs.y - lhs.y * rhs.x);
 }
