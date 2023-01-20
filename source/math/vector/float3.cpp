@@ -1,6 +1,6 @@
 #include "float3.hpp"
 
-float3 &float3::normalize()
+float3 float3::normalize()
 {
     float norm = this->norm();
     if (norm == 0)

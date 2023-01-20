@@ -33,7 +33,7 @@ public:
     constexpr float3& operator/=(const float value);
 
 public:
-    float3 &normalize();
+    float3 normalize();
     float norm() const;
     float norm_square() const;
     float dot(const float3 &other) const;

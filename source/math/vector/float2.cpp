@@ -1,6 +1,6 @@
 #include "float2.hpp"
 
-float2 &float2::normalize()
+float2 float2::normalize()
 {
     float norm = this->norm();
     if (norm == 0)
