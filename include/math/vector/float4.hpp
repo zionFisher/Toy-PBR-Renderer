@@ -21,16 +21,12 @@ public:
     constexpr float& operator[](const int index);
     constexpr float4 operator+(const float4 &other) const;
     constexpr float4 operator-(const float4 &other) const;
-    constexpr float4 operator*(const float4 &other) const;
-    constexpr float4 operator/(const float4 &other) const;
     constexpr float4 operator+(const float value) const;
     constexpr float4 operator-(const float value) const;
     constexpr float4 operator*(const float value) const;
     constexpr float4 operator/(const float value) const;
     constexpr float4& operator+=(const float4 &other);
     constexpr float4& operator-=(const float4 &other);
-    constexpr float4& operator*=(const float4 &other);
-    constexpr float4& operator/=(const float4 &other);
     constexpr float4& operator+=(const float value);
     constexpr float4& operator-=(const float value);
     constexpr float4& operator*=(const float value);
@@ -83,22 +79,6 @@ constexpr float4 float4::operator-(const float4 &other) const
     return float4(this->x - other.x, this->y - other.y, this->z - other.z, this->w - other.w);
 }
 
-constexpr float4 float4::operator*(const float4 &other) const
-{
-    return float4(this->x * other.x, this->y * other.y, this->z * other.z, this->w * other.w);
-}
-
-constexpr float4 float4::operator/(const float4 &other) const
-{
-    // if (other.x == 0 or other.y == 0 or other.z == 0 or other.w == 0)
-    // {
-    //     // TODO: exception
-    //     return float4(0, 0);
-    // }
-
-    return float4(this->x / other.x, this->y / other.y, this->z / other.z, this->w / other.w);
-}
-
 constexpr float4 float4::operator+(const float value) const
 {
     return float4(this->x + value, this->y + value, this->z + value, this->w + value);
@@ -140,29 +120,6 @@ constexpr float4 &float4::operator-=(const float4 &other)
     this->y -= other.y;
     this->z -= other.z;
     this->w -= other.w;
-    return *this;
-}
-
-constexpr float4 &float4::operator*=(const float4 &other)
-{
-    this->x *= other.x;
-    this->y *= other.y;
-    this->z *= other.z;
-    this->w *= other.w;
-    return *this;
-}
-
-constexpr float4 &float4::operator/=(const float4 &other)
-{
-    // if (other.x == 0 or other.y == 0 or other.z == 0 or other.w == 0)
-    // {
-    //     // TODO: exception
-    // }
-
-    this->x /= other.x;
-    this->y /= other.y;
-    this->z /= other.z;
-    this->w /= other.w;
     return *this;
 }
 

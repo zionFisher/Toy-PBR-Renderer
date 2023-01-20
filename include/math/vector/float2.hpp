@@ -19,16 +19,12 @@ public:
     constexpr float& operator[](const int index);
     constexpr float2 operator+(const float2 &other) const;
     constexpr float2 operator-(const float2 &other) const;
-    constexpr float2 operator*(const float2 &other) const;
-    constexpr float2 operator/(const float2 &other) const;
     constexpr float2 operator+(const float value) const;
     constexpr float2 operator-(const float value) const;
     constexpr float2 operator*(const float value) const;
     constexpr float2 operator/(const float value) const;
     constexpr float2& operator+=(const float2 &other);
     constexpr float2& operator-=(const float2 &other);
-    constexpr float2& operator*=(const float2 &other);
-    constexpr float2& operator/=(const float2 &other);
     constexpr float2& operator+=(const float value);
     constexpr float2& operator-=(const float value);
     constexpr float2& operator*=(const float value);
@@ -77,22 +73,6 @@ constexpr float2 float2::operator-(const float2 &other) const
     return float2(this->x - other.x, this->y - other.y);
 }
 
-constexpr float2 float2::operator*(const float2 &other) const
-{
-    return float2(this->x * other.x, this->y * other.y);
-}
-
-constexpr float2 float2::operator/(const float2 &other) const
-{
-    // if (other.x == 0 or other.y == 0)
-    // {
-    //     // TODO: exception
-    //     return float2(0, 0);
-    // }
-
-    return float2(this->x / other.x, this->y / other.y);
-}
-
 constexpr float2 float2::operator+(const float value) const
 {
     return float2(this->x + value, this->y + value);
@@ -130,25 +110,6 @@ constexpr float2 &float2::operator-=(const float2 &other)
 {
     this->x -= other.x;
     this->y -= other.y;
-    return *this;
-}
-
-constexpr float2 &float2::operator*=(const float2 &other)
-{
-    this->x *= other.x;
-    this->y *= other.y;
-    return *this;
-}
-
-constexpr float2 &float2::operator/=(const float2 &other)
-{
-    // if (other.x == 0 or other.y == 0)
-    // {
-    //     // TODO: exception
-    // }
-
-    this->x /= other.x;
-    this->y /= other.y;
     return *this;
 }
 

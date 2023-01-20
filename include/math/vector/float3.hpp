@@ -20,16 +20,12 @@ public:
     constexpr float& operator[](const int index);
     constexpr float3 operator+(const float3 &other) const;
     constexpr float3 operator-(const float3 &other) const;
-    constexpr float3 operator*(const float3 &other) const;
-    constexpr float3 operator/(const float3 &other) const;
     constexpr float3 operator+(const float value) const;
     constexpr float3 operator-(const float value) const;
     constexpr float3 operator*(const float value) const;
     constexpr float3 operator/(const float value) const;
     constexpr float3& operator+=(const float3 &other);
     constexpr float3& operator-=(const float3 &other);
-    constexpr float3& operator*=(const float3 &other);
-    constexpr float3& operator/=(const float3 &other);
     constexpr float3& operator+=(const float value);
     constexpr float3& operator-=(const float value);
     constexpr float3& operator*=(const float value);
@@ -57,7 +53,7 @@ constexpr float3 &float3::operator=(const float3 &value)
     return *this;
 }
 
-constexpr float3& float3::operator=(float value)
+constexpr float3 &float3::operator=(float value)
 {
     this->x = value;
     this->y = value;
@@ -78,22 +74,6 @@ constexpr float3 float3::operator+(const float3 &other) const
 constexpr float3 float3::operator-(const float3 &other) const
 {
     return float3(this->x - other.x, this->y - other.y, this->z - other.z);
-}
-
-constexpr float3 float3::operator*(const float3 &other) const
-{
-    return float3(this->x * other.x, this->y * other.y, this->z * other.z);
-}
-
-constexpr float3 float3::operator/(const float3 &other) const
-{
-    // if (other.x == 0 or other.y == 0 or other.z == 0)
-    // {
-    //     // TODO: exception
-    //     return float3(0, 0);
-    // }
-
-    return float3(this->x / other.x, this->y / other.y, this->z / other.z);
 }
 
 constexpr float3 float3::operator+(const float value) const
@@ -135,27 +115,6 @@ constexpr float3 &float3::operator-=(const float3 &other)
     this->x -= other.x;
     this->y -= other.y;
     this->z -= other.z;
-    return *this;
-}
-
-constexpr float3 &float3::operator*=(const float3 &other)
-{
-    this->x *= other.x;
-    this->y *= other.y;
-    this->z *= other.z;
-    return *this;
-}
-
-constexpr float3 &float3::operator/=(const float3 &other)
-{
-    // if (other.x == 0 or other.y == 0 or other.z == 0)
-    // {
-    //     // TODO: exception
-    // }
-
-    this->x /= other.x;
-    this->y /= other.y;
-    this->z /= other.z;
     return *this;
 }
 
