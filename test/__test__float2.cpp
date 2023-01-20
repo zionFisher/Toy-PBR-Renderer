@@ -28,19 +28,13 @@ int main()
         cout << test3[0] << ", " << test3[1] << endl;
         cout << (test3 + test4).x << ", " << (test3 + test4).y << endl;
         cout << (test3 - test4).x << ", " << (test3 - test4).y << endl;
-        cout << (test3 * test4).x << ", " << (test3 * test4).y << endl;
-        cout << (test3 / test4).x << ", " << (test3 / test4).y << endl;
-        cout << (test3 + 1.0f).x << ", " << (test3 + 1.0f).y << endl;
+        cout << (test3 + 1.0f).x << ", " << (1.0f + test3).y << endl;
         cout << (test3 - 1.0f).x << ", " << (test3 - 1.0f).y << endl;
-        cout << (test3 * 2.0f).x << ", " << (test3 * 2.0f).y << endl;
+        cout << (test3 * 2.0f).x << ", " << (2.0f * test3).y << endl;
         cout << (test3 / 2.0f).x << ", " << (test3 / 2.0f).y << endl;
         test3 += test4;
         cout << test3.x << ", " << test3.y << endl;
         test3 -= test4;
-        cout << test3.x << ", " << test3.y << endl;
-        test3 *= test4;
-        cout << test3.x << ", " << test3.y << endl;
-        test3 /= test4;
         cout << test3.x << ", " << test3.y << endl;
 
         test3 = 1.0f;
@@ -59,5 +53,10 @@ int main()
         cout << test5.norm() << " " << test5.norm_square() << " " << endl;
         test5.normalize();
         cout << test5.x << ", " << test5.y << endl;
+    }
+    {
+        float2 test6(1.0f, 2.0f);
+        float2 test7(3.0f, 3.0f);
+        cout << test6.dot(test7) << endl;
     }
 }

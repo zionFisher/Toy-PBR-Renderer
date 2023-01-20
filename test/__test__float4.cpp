@@ -28,19 +28,13 @@ int main()
         cout << test3[0] << ", " << test3[1] << ", " << test3[2] << ", " << test3[3] << endl;
         cout << (test3 + test4).x << ", " << (test3 + test4).y << ", " << (test3 + test4).z << ", " << (test3 + test4).w << endl;
         cout << (test3 - test4).x << ", " << (test3 - test4).y << ", " << (test3 - test4).z << ", " << (test3 - test4).w << endl;
-        cout << (test3 * test4).x << ", " << (test3 * test4).y << ", " << (test3 * test4).z << ", " << (test3 * test4).w << endl;
-        cout << (test3 / test4).x << ", " << (test3 / test4).y << ", " << (test3 / test4).z << ", " << (test3 / test4).w << endl;
-        cout << (test3 + 1.0f).x << ", " << (test3 + 1.0f).y << ", " << (test3 + 1.0f).z << ", " << (test3 + 1.0f).w << endl;
+        cout << (test3 + 1.0f).x << ", " << (test3 + 1.0f).y << ", " << (test3 + 1.0f).z << ", " << (1.0f + test3).w << endl;
         cout << (test3 - 1.0f).x << ", " << (test3 - 1.0f).y << ", " << (test3 - 1.0f).z << ", " << (test3 - 1.0f).w << endl;
-        cout << (test3 * 2.0f).x << ", " << (test3 * 2.0f).y << ", " << (test3 * 2.0f).z << ", " << (test3 * 2.0f).w << endl;
+        cout << (test3 * 2.0f).x << ", " << (test3 * 2.0f).y << ", " << (test3 * 2.0f).z << ", " << (2.0f * test3).w << endl;
         cout << (test3 / 2.0f).x << ", " << (test3 / 2.0f).y << ", " << (test3 / 2.0f).z << ", " << (test3 / 2.0f).w << endl;
         test3 += test4;
         cout << test3.x << ", " << test3.y << ", " << test3.z << ", " << test3.w << endl;
         test3 -= test4;
-        cout << test3.x << ", " << test3.y << ", " << test3.z << ", " << test3.w << endl;
-        test3 *= test4;
-        cout << test3.x << ", " << test3.y << ", " << test3.z << ", " << test3.w << endl;
-        test3 /= test4;
         cout << test3.x << ", " << test3.y << ", " << test3.z << ", " << test3.w << endl;
 
         test3 = 1.0f;
@@ -59,5 +53,10 @@ int main()
         cout << test5.norm() << " " << test5.norm_square() << " " << endl;
         test5.normalize();
         cout << test5.x << ", " << test5.y << ", " << test5.z << ", " << test5.w << endl;
+    }
+    {
+        float4 test6(1.0f, 2.0f, 3.0f, 4.0f);
+        float4 test7(2.0f, 2.0f, 2.0f, 2.0f);
+        cout << test6.dot(test7) << endl;
     }
 }
