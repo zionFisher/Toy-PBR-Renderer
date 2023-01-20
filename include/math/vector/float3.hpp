@@ -16,7 +16,7 @@ public:
 public:
     constexpr float3 operator-() const;
     constexpr float3& operator=(const float3 &value);
-    constexpr float3& operator=(float value);
+    constexpr float3& operator=(const float &value);
     constexpr float& operator[](const int index);
     constexpr float3 operator+(const float3 &other) const;
     constexpr float3 operator-(const float3 &other) const;
@@ -35,6 +35,8 @@ public:
     void normalize();
     float norm() const;
     float norm_square() const;
+    float dot(const float3 &other) const;
+    float3 cross(const float3 &other) const;
 };
 
 constexpr float3::float3() : x(0), y(0), z(0) {}
@@ -53,7 +55,7 @@ constexpr float3 &float3::operator=(const float3 &value)
     return *this;
 }
 
-constexpr float3 &float3::operator=(float value)
+constexpr float3 &float3::operator=(const float &value)
 {
     this->x = value;
     this->y = value;
@@ -153,4 +155,14 @@ constexpr float3 &float3::operator/=(const float value)
     this->y /= value;
     this->z /= value;
     return *this;
+}
+
+constexpr float3 operator+(const float &lhs, const float3 &rhs)
+{
+    return float3(lhs + rhs.x, lhs + rhs.y, lhs + rhs.z);
+}
+
+constexpr float3 operator*(const float &lhs, const float3 &rhs)
+{
+    return float3(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z);
 }

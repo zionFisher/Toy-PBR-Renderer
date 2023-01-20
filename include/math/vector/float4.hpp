@@ -17,7 +17,7 @@ public:
 public:
     constexpr float4 operator-() const;
     constexpr float4& operator=(const float4 &value);
-    constexpr float4& operator=(float value);
+    constexpr float4& operator=(const float &value);
     constexpr float& operator[](const int index);
     constexpr float4 operator+(const float4 &other) const;
     constexpr float4 operator-(const float4 &other) const;
@@ -36,6 +36,7 @@ public:
     void normalize();
     float norm() const;
     float norm_square() const;
+    float dot(const float4 &other) const;
 };
 
 constexpr float4::float4() : x(0), y(0), z(0), w(0) {}
@@ -55,7 +56,7 @@ constexpr float4 &float4::operator=(const float4 &value)
     return *this;
 }
 
-constexpr float4& float4::operator=(float value)
+constexpr float4& float4::operator=(const float &value)
 {
     this->x = value;
     this->y = value;

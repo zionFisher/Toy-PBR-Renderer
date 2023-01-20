@@ -18,3 +18,8 @@ float float2::norm_square() const
 {
     return this->x * this->x + this->y * this->y;
 }
+
+float float2::dot(const float2 &other) const
+{
+    return this->x * other.x + this->y * other.y;
+}

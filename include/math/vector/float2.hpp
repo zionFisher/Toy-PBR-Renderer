@@ -15,7 +15,7 @@ public:
 public:
     constexpr float2 operator-() const;
     constexpr float2& operator=(const float2 &value);
-    constexpr float2& operator=(float value);
+    constexpr float2& operator=(const float &value);
     constexpr float& operator[](const int index);
     constexpr float2 operator+(const float2 &other) const;
     constexpr float2 operator-(const float2 &other) const;
@@ -34,6 +34,7 @@ public:
     void normalize();
     float norm() const;
     float norm_square() const;
+    float dot(const float2& other) const;
 };
 
 constexpr float2::float2() : x(0), y(0) {}
@@ -51,7 +52,7 @@ constexpr float2 &float2::operator=(const float2 &value)
     return *this;
 }
 
-constexpr float2& float2::operator=(float value)
+constexpr float2& float2::operator=(const float &value)
 {
     this->x = value;
     this->y = value;
@@ -144,4 +145,14 @@ constexpr float2 &float2::operator/=(const float value)
     this->x /= value;
     this->y /= value;
     return *this;
+}
+
+constexpr float2 operator+(const float &lhs, const float2 &rhs)
+{
+    return float2(lhs + rhs.x, lhs + rhs.y);
+}
+
+constexpr float2 operator*(const float &lhs, const float2 &rhs)
+{
+    return float2(lhs * rhs.x, lhs * rhs.y);
 }
