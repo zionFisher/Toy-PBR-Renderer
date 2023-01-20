@@ -1,12 +1,13 @@
 #include "float3.hpp"
 
-void float3::normalize()
+float3 &float3::normalize()
 {
     float norm = this->norm();
     if (norm == 0)
         return;
 
     *this /= norm;
+    return *this;
 }
 
 float float3::norm() const
